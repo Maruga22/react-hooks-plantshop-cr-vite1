@@ -11,7 +11,7 @@ function PlantPage() {
   useEffect(() => {
     fetch("http://localhost:6001/plants")
       .then((res) => res.json())
-      .then((data) => setPlants(data))
+      .then((data) => setPlants(data.map(plant => ({ ...plant, price: typeof plant.price === 'string' ? plant.price.replace(/^\$/, '') : plant.price }))))
       .catch((error) => console.error("Error fetching plants:", error));
   }, []);
 
@@ -41,7 +41,12 @@ function PlantPage() {
         body: JSON.stringify({ soldOut: !plant.soldOut }),
       })
         .then((res) => res.json())
-        .then((updatedPlant) => {
+        .then((data) => {
+          const updatedPlant =
+            data && typeof data === "object" && !Array.isArray(data) && data.id
+              ? data
+              : { ...plant, soldOut: !plant.soldOut };
+
           setPlants(
             plants.map((p) => (p.id === id ? updatedPlant : p))
           );
@@ -52,7 +57,7 @@ function PlantPage() {
 
   // Filter plants based on search query
   const filteredPlants = plants.filter((plant) =>
-    plant.name.toLowerCase().includes(searchQuery.toLowerCase())
+    plant.name?.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   return (

@@ -17,37 +17,40 @@
     {
       "id": 3,
       "name": "Pilea peperomioides",
-      "image": "./i,
-      "soldOut": falsemages/pilea.jpg",
-      "price": 5.99
+      "image": "./images/pilea.jpg",
+      "price": 5.99,
+      "soldOut": false
     },
     {
       "id": 4,
-      "name": "Potho,
-      "soldOut": falses",
+      "name": "Pothos",
       "image": "./images/pothos.jpg",
-      "price": 12.11
+      "price": 12.11,
+      "soldOut": false
     },
     {
-      "id": 5,,
-      "soldOut": false
+      "id": 5,
       "name": "Jade",
       "image": "./images/jade.jpg",
-      "price": 10.37
+      "price": 10.37,
+      "soldOut": false
     },
     {
-      "id": 6,,
-      "soldOut": false
+      "id": 6,
       "name": "Monstera Deliciosa",
       "image": "./images/monstera.jpg",
-      "price": 25.99
-    },
-    {,
+      "price": 25.99,
       "soldOut": false
+    },
+    {
       "id": 7,
       "name": "Fiddle Leaf Fig",
       "image": "./images/fiddle-leaf-fig.jpg",
-      "price": 55
+      "price": 55,
+      "soldOut": false
+    }
+  ]
+}
     }
   ]
 }

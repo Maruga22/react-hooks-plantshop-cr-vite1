@@ -11,14 +11,14 @@ function NewPlantForm({ onAddPlant }) {
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
-      [name]: name === "price" ? parseFloat(value) : value,
+      [name]: value,
     }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (formData.name && formData.image && formData.price) {
-      onAddPlant({ ...formData, soldOut: false });
+      onAddPlant({ name: formData.name, image: formData.image, price: formData.price });
       setFormData({ name: "", image: "", price: "" });
     }
   };
